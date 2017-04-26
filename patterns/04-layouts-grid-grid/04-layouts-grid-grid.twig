@@ -1,0 +1,9 @@
+<div class="l-grid{% for modifier in grid_variation %} l-grid--{{ modifier }}{% endfor %}">
+  {% block grid_content %}
+    {% for row in rows %}
+      <div class="l-grid__item">
+        {{row.content}}
+      </div>
+    {% endfor %}
+  {% endblock %}
+</div>
