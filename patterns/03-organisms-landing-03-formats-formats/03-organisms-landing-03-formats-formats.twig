@@ -1,0 +1,27 @@
+<div class="o-formats">
+  {% embed "@layouts/grid/grid.twig" with {
+  grid_variation: ['2col', 'spaceless']
+  } %}
+
+    {% block grid_content %}
+      {# Drupal content #}
+      {% if grid_content %}
+        {{ grid_content }}
+        {# PL content in JSON #}
+      {% else %}
+        {% for format in formats %}
+          {% include "@molecules/format-card/format-card.twig"
+          with {
+          "title": format.title,
+          "description": format.description,
+          "image": format.image,
+          "pricing": format.pricing,
+          "people": format.people
+          }
+          %}
+        {% endfor %}
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+</div>
+

@@ -1,0 +1,25 @@
+<section class="o-foods">
+  <div class="o-foods__inner">
+    <div class="o-foods__title">
+      {% include "@atoms/00-type/00-heading.twig"
+        with {
+          heading: {
+          label: title,
+          level: 2,
+          variation: 4,
+          align: "center",
+          color: "light"
+        }
+      }
+      %}
+    </div>
+    {% for card in cards %}
+      {% include "@molecules/card/card.twig"
+      with {
+      "card_img": card.card_img,
+      "card_title": card.card_title
+      }
+      %}
+    {% endfor %}
+  </div>
+</section>
